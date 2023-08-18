@@ -25,9 +25,9 @@ public class TimestampConverterTests {
     }
 
     @ParameterizedTest
-    @CsvSource({ "YY-MM-dd, YY-MM-dd", "," + TimestampConverter.DEFAULT_DATE_FORMAT })
+    @CsvSource({ "YY-MM-dd, YY-MM-dd", "," + TimestampConverter2.DEFAULT_DATE_FORMAT })
     void configureDateTest(final String inputFormat, final String expectedFormat) {
-        final TimestampConverter tsConverter = new TimestampConverter();
+        final TimestampConverter2 tsConverter = new TimestampConverter2();
 
         Properties props = new Properties();
         if (inputFormat != null)
@@ -46,9 +46,9 @@ public class TimestampConverterTests {
     }
 
     @ParameterizedTest
-    @CsvSource({ "mm:ss.SSS, mm:ss.SSS", "," + TimestampConverter.DEFAULT_TIME_FORMAT })
+    @CsvSource({ "mm:ss.SSS, mm:ss.SSS", "," + TimestampConverter2.DEFAULT_TIME_FORMAT })
     void configureTimeTest(final String inputFormat, final String expectedFormat) {
-        final TimestampConverter tsConverter = new TimestampConverter();
+        final TimestampConverter2 tsConverter = new TimestampConverter2();
 
         Properties props = new Properties();
         if (inputFormat != null)
@@ -80,7 +80,7 @@ public class TimestampConverterTests {
             "datetime2,, 2019-4-19 15:13:20.345123, 2019-04-19T15:13:20.345Z",
             "datetime,, 2019-4-19 3:1:0.345123, 2019-04-19T03:01:00.345Z", "datetime,YYYY-MM-dd,,", "timestamp,,,", "date,,,"})
     void converterTest(final String columnType, final String format, final String input, final String expectedResult) {
-        final TimestampConverter tsConverter = new TimestampConverter();
+        final TimestampConverter2 tsConverter = new TimestampConverter2();
 
         Properties props = new Properties();
         if (format != null)
